@@ -32,7 +32,7 @@ def wow(phenny, input):
 			charProf = ''
 			for x in char['professions']:
 				try:
-					charProf += '%s: \00307%s\003 ' % (x['name'], x['value'])
+					charProf += '%s: \00309%s\003 ' % (x['name'], x['value'])
 				except KeyError:
 					charProf += "No Skill "
 					
