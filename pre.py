@@ -22,7 +22,9 @@ def pre(phenny, input):
 	x = 0
 	y = 0
 	z = 0
-
+	
+	time, section, release, info = None, None, None, None
+	
 	for q in data:
 		line += 1
 		a = reTime.match(q.lstrip())
@@ -48,10 +50,9 @@ def pre(phenny, input):
 					info = d.group(1)
 				else:
 					info = 'No info'
-					
-	try:
+	if release:				
 		phenny.say('[\00309 %s \003] %s | %s | \002%s\002' % (section, release, time, info))
-	except UnboundLocalError:
+	else:
 		phenny.say('No results found')
 
 pre.commands = ['pre']
