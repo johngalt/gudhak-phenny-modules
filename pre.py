@@ -49,9 +49,9 @@ def pre(phenny, input):
 				else:
 					info = 'No info'
 					
-	if release:
+	try:
 		phenny.say('[\00309 %s \003] %s | %s | \002%s\002' % (section, release, time, info))
-	else:
+	except UnboundLocalError:
 		phenny.say('No results found')
 
 pre.commands = ['pre']
