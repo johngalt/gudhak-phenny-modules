@@ -48,10 +48,12 @@ def pre(phenny, input):
 			if (x,y,z) == (1,1,1):
 				if line == infonum + 1:
 					info = d.group(1)
-				else:
-					info = 'No info'
+					info = info.replace(' | ', ',')
+					info = info.replace('MB', '\00309MB\003')
+					info = info.replace('F', '\00309F\003')
+				
 	if release:				
-		phenny.say('[\00309 %s \003] %s | %s | \002%s\002' % (section, release, time, info))
+		phenny.say('[\00309 %s \003] %s | %s | %s' % (section, release, time, info))
 	else:
 		phenny.say('No results found')
 
