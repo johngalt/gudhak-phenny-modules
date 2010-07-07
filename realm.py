@@ -1,7 +1,10 @@
 import urllib2, re
 
-def realm(phenny, input):
-	realm = input.split(' ')[1:]
+def realm(input):
+	realmraw = input.split(' ')[1:]
+	realm = []
+	for x in realmraw:
+		realm.append(x.capitalize())
 	realm = ' '.join(realm)
 	realm = realm.replace('\'', '&#039;')
 	if not realm:
@@ -25,13 +28,15 @@ def realm(phenny, input):
 			verify = 1
 			
 	if verify:
-		print status
 		if status == '#234303;':
-			phenny.say('[Realm] ' + realm + ' is \00309\002UP\002\003')
+			phenny.say('[Realm] ' + realm.replace('&#039;', '\'') + ' is \00309\002UP\002\003')
+			
 		else:
-			phenny.say('[Realm] ' + realm + ' is \00304\002DOWN\002\003')
+			phenny.say('[Realm] ' + realm.replace('&#039;', '\'') + ' is \00304\002DOWN\002\003')
+			
 	else:
 		phenny.say('[Realm] invalid realm')
+	
 		
 realm.commands = ['realm']
 realm.example = ".realm Lightning's Blade"
