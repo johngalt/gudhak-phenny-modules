@@ -1,6 +1,6 @@
 import urllib2, re
 
-def realm(input):
+def realm(phenny, input):
 	realmraw = input.split(' ')[1:]
 	realm = []
 	for x in realmraw:
