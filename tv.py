@@ -51,7 +51,8 @@ def next(phenny, input):
         html = urllib2.urlopen('http://services.tvrage.com/tools/quickinfo.php?show=' + show).read()
         data = html.split('\n')
         z = 0
-
+		
+	showName,showNextRaw = None, None
         for x in data:
             y = x.split('@')
             if y[0] == 'Show Name':
@@ -81,8 +82,9 @@ def last(phenny, input):
         html = urllib2.urlopen('http://services.tvrage.com/tools/quickinfo.php?show=' + show).read()
         data = html.split('\n')
         z = 0
-
-        for x in data:
+		
+	showName,showLastRaw = None, None
+	for x in data:
             y = x.split('@')
             if y[0] == 'Show Name':
                 showName = y[1]
