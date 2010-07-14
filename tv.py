@@ -51,16 +51,18 @@ def next(phenny, input):
         html = urllib2.urlopen('http://services.tvrage.com/tools/quickinfo.php?show=' + show).read()
         data = html.split('\n')
         z = 0
-		
 	showName,showNextRaw = None, None
+		
         for x in data:
             y = x.split('@')
             if y[0] == 'Show Name':
                 showName = y[1]
             elif y[0] == 'Next Episode':
                 showNextRaw =  y[1]
-
-        showNext = showNextRaw.split('^')
+	if showNextRaw:
+		showNext = showNextRaw.split('^')
+	else:
+		showNext = None
 
         if not showName:
             phenny.say('Could not find tv show with that name')
@@ -82,7 +84,6 @@ def last(phenny, input):
         html = urllib2.urlopen('http://services.tvrage.com/tools/quickinfo.php?show=' + show).read()
         data = html.split('\n')
         z = 0
-		
 	showName,showLastRaw = None, None
 	for x in data:
             y = x.split('@')
@@ -90,8 +91,10 @@ def last(phenny, input):
                 showName = y[1]
             elif y[0] == 'Latest Episode':
                 showLastRaw =  y[1]
-
-        showLast = showLastRaw.split('^')
+	if showLastRaw:
+		showLast = showLastRaw.split('^')
+	else:
+		showLast = None
 
         if not showName:
             phenny.say('Could not find tv show with that name')
