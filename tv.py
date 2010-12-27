@@ -69,7 +69,7 @@ def next(phenny, input):
         elif not showNext[0]:
             phenny.say('Next episode is not available')
         else:
-            phenny.say('\002Next -->\002 The next episode of\037 ' + showName + '\037 is \037' + showNext[1] + '\037 (' + showNext[0] + ') on ' + showNext[2])
+            phenny.say('\002Next -->\002 The next episode of \037' + showName + '\037 is \037' + showNext[1] + '\037 (' + showNext[0] + ') on ' + showNext[2])
 
 next.commands = ['next']
 next.example = '.next House'
@@ -101,7 +101,7 @@ def last(phenny, input):
         elif not showLast[0]:
             phenny.say('Last episode of not available')
         else:
-            phenny.say('\002Last -->\002 The last episode of\037 ' + showName + '\037 was \037' + showLast[1] + '\037 (' + showLast[0] + ') on ' + showLast[2])
+            phenny.say('\002Last -->\002 The last episode of \037' + showName + '\037 was \037' + showLast[1] + '\037 (' + showLast[0] + ') on ' + showLast[2])
 
 last.commands = ['last']
 last.example = '.last House'
